@@ -1,11 +1,13 @@
+package Dictionary;
+
 import Interface.Dictionary;
 import Node.Node;
 
-public class DIctUsingSeparateChaning implements Dictionary {
+public class DictUsingSeparateChaning implements Dictionary {
 
-  private Node[] aDict;
+  public Node[] aDict;
 
-  public DIctUsingSeparateChaning() {
+  public DictUsingSeparateChaning() {
     aDict = new Node[TABLE_SIZE];
   }
 
@@ -21,11 +23,13 @@ public class DIctUsingSeparateChaning implements Dictionary {
       return;
     }
 
-    while (tmp.next != null) {
+    while (tmp != null) {
       if (tmp.key == key) {
         tmp.value = value;
         return;
       }
+      if (tmp.next == null)
+        break;
       tmp = tmp.next;
     }
 
@@ -49,6 +53,8 @@ public class DIctUsingSeparateChaning implements Dictionary {
     if (tmp.key == key) {
       if (tmp.next != null) {
         aDict[getHashIndex(key)] = tmp.next;
+      } else {
+        aDict[getHashIndex(key)] = null;
       }
       tmp = null;
       return;
@@ -70,19 +76,4 @@ public class DIctUsingSeparateChaning implements Dictionary {
     }
   }
 
-  public static void main(String[] args) {
-    DIctUsingSeparateChaning aDict = new DIctUsingSeparateChaning();
-    aDict.insert(29, "29");
-    aDict.insert(32, "32");
-    aDict.insert(58, "58");
-    aDict.insert(21, "21");
-    aDict.insert(81, "81");
-    aDict.insert(35, "35");
-    aDict.insert(60, "60");
-    aDict.insert(12, "12");
-    aDict.delete(81);
-    // aDict.delete(35);
-    // aDict.print();
-    System.out.println(aDict.get(35));
-  }
 }
