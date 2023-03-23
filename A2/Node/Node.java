@@ -1,9 +1,9 @@
 package Node;
 
 public class Node {
-  Integer key;
-  String value;
-  Node next;
+  public Integer key;
+  public String value;
+  public Node next;
 
   public Node() {
     key = null;
