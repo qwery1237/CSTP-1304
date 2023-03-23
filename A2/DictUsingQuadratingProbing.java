@@ -62,8 +62,8 @@ public class DictUsingQuadratingProbing implements Dictionary {
     aDict.insert(60, "60");
     aDict.insert(12, "12");
     aDict.delete(21);
-    System.out.println(aDict.get(35));
     aDict.insert(35, "359");
     // aDict.print();
+    System.out.println(aDict.get(35));
   }
 }
