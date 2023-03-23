@@ -6,10 +6,6 @@ public interface Dictionary {
 
   public int getHashIndex(Integer key);
 
-  public int getSize();
-
-  public boolean isEmpty();
-
   public void insert(Integer key, String value);
 
   public String get(Integer key);
