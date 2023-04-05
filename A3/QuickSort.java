@@ -6,11 +6,14 @@ public class QuickSort {
   }
 
   void quickSortRecursive(int start, int end) {
-    if (start < end) {
-      int pivotIndex = sort(start, end);
-      quickSortRecursive(start, pivotIndex - 1);
-      quickSortRecursive(pivotIndex + 1, end);
-    }
+
+    if (start >= end)
+      return;
+
+    int pivotIndex = sort(start, end);
+
+    quickSortRecursive(start, pivotIndex - 1);
+    quickSortRecursive(pivotIndex + 1, end);
   }
 
   void quickSort() {
@@ -19,14 +22,15 @@ public class QuickSort {
 
   int sort(int start, int end) {
 
-    int pivotIndex = start;
-    for (int i = start; i <= end; i++) {
-      if (arr[start] > arr[i]) {
+    int pivotIndex = end;
 
-        swap(++pivotIndex, i);
+    for (int i = end - 1; i >= start; i--) {
+      if (arr[end] < arr[i]) {
+        swap(--pivotIndex, i);
       }
     }
-    swap(start, pivotIndex);
+
+    swap(end, pivotIndex);
 
     return pivotIndex;
   }
